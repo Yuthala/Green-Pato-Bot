@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {useEffect} from "react";
 
-//const tg = window.Telegram.WebApp;
+const tg = window.Telegram.WebApp;
 
 function App() {
 
@@ -10,12 +10,9 @@ function App() {
     tg.ready();
   }, [])
 
-  
-
   return (
     <div className="App">
       work
-      <button onClick={onClose}>Закрыть</button>
     </div>
   );
 }
