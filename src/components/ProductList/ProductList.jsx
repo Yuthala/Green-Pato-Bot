@@ -27,14 +27,14 @@ const ProductList = () => {
 			totalPrice: getTotalPrice(addedItems),
 			queryId
         }
-        fetch('http://localhost:8000', {
+        fetch('http://localhost:8000', { //указать актуальный публичный IP-адрес сервера, где лежит бот и /web-data (в данном примере) - взять эндпоинт из app.post первый аргумент
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(data)
 		})
-    }, [])
+    }, [addedItems])
 
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', onSendData)
