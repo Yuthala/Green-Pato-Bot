@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const webAppUrl = 'https://ya.ru';
+const webAppUrl = 'https://greenpatobot.netlify.app';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
