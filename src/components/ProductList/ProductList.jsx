@@ -4,11 +4,12 @@ import ProductItem from '../ProductItem/ProductItem';
 import { useTelegram } from '../../hooks/useTelegram';
 import { useCallback, useEffect, useState } from 'react';
 
+//Вынести в базу данных
 const products = [
-	{id: '1', title: 'Potatoes', price: 75, description: 'сорт Импала'},
-	{id: '2', title: 'Tomatoes', price: 150, description: 'сорт Розовые'},
-	{id: '3', title: 'Баклажаны', price: 80, description: 'сорт Алмаз'},
-	{id: '4', title: 'Cucumbers', price: 120, description: 'сорт ТСХ'},
+	{id: '1', title: 'Картофель', price: 75, description: 'сорт Импала, кг'},
+	{id: '2', title: 'Томаты', price: 150, description: 'сорт Розовые, кг'},
+	{id: '3', title: 'Баклажаны', price: 80, description: 'сорт Алмаз, кг'},
+	{id: '4', title: 'Огруцы', price: 120, description: 'сорт ТСХ, 600 г'},
 ]
 
 const getTotalPrice = (items = []) => {
@@ -27,7 +28,7 @@ const ProductList = () => {
 			totalPrice: getTotalPrice(addedItems),
 			queryId
         }
-        fetch('http://localhost:8000', { //указать актуальный публичный IP-адрес сервера, где лежит бот и /web-data (в данном примере) - взять эндпоинт из app.post первый аргумент
+        fetch('http://localhost:8000', { //указать актуальный публичный IP-адрес сервера, где лежит бот, и /web-data (в данном примере) - взять эндпоинт из строки app.post первый аргумент
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -53,7 +54,7 @@ const ProductList = () => {
 			newItems = [...addedItems, product];
 		}
 
-		setAddedItems(newItems)
+	setAddedItems(newItems)
 
 		if(newItems.length === 0) {
 			tg.MainButton.hide();
@@ -74,7 +75,6 @@ const ProductList = () => {
 					className={'item'}
 				/>
 			))}
-			Product List
 		</div>
 	);
 };
