@@ -1,23 +1,24 @@
-.product {
+.productitem {
 	display: flex;
 	flex-direction: column;
-	border: 1px solid var(--tg-theme-button-color);
-	padding: 15px;
-	width: 170px;
+	border: 1px solid lightblue;
+	padding: 20px;
 }
 
-.img {
+
+.add-btn {
+	width: 100%;
+}
+
+
+.img img {
 	width: 100%;
 	background: lightgray;
-	height: 100px;
+	height: 20vh;
 	margin: 0 auto;
-	background: var(--tg-theme-button-color);
+	object-fit: cover;
 }
 
 .description {
 	font-size: 0.8em;
-}
-
-.add-btn {
-	width: 100%;
 }
