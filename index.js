@@ -4,6 +4,7 @@ require('dotenv').config();
 // Changing max listeners for node
 require('events').EventEmitter.defaultMaxListeners = 0;
 
+const { error } = require('console');
 // Creating telegram api const
 const TelegramBot = require('node-telegram-bot-api');
 
@@ -41,6 +42,23 @@ bot.on('message', async (msg) => {
 
     }
 
-    // Send message to the chat 
-    //bot.sendMessage(chatId, 'recived your message')
+    // Getting Contact info (Lead) 
+    if (msg?.web_app_data?.data) {
+        try {
+        const data = JSON.parse(msg?.web_app_data.data)
+        //console.log(data)
+        await bot.sendMessage(chatId, `Спасибо ${data?.name}, контактные данные получены`)
+        await bot.sendMessage(chatId, 'Ваш адрес: ' + data?.street)
+        await bot.sendMessage(chatId, 'Ваш номер телефона: ' + data?.phone)
+
+        // Example:  Set timeout before send next message
+            setTimeout(async () => {
+                await bot.sendMessage(chatId, 'Всю информацию вы получите в этом чате'); 
+            }, 3000)
+            
+        } catch (e) {
+           console.log(e)
+        }
+    }
+    
 })
