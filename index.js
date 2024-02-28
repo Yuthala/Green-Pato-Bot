@@ -72,7 +72,15 @@ bot.on('message', async (msg) => {
                 //onError: (e) => console.log(e),
                 //onSuccess: (i) => console.log(i)
               })
+
+              await bot.sendMessage(chatId, 'Ваши контактные данные отправлены')
+              
             }, 3000)
+
+            //  Set timeout before send next message
+            // setTimeout(async () => {
+            //     await bot.sendMessage(chatId, 'Ваши контактные данные отправлены'); 
+            // }, 2000)
             
         } catch (e) {
            console.log(e)
