@@ -4,7 +4,9 @@ require('dotenv').config();
 // Changing max listeners for node
 require('events').EventEmitter.defaultMaxListeners = 0;
 
-const { error } = require('console');
+// Creating NodeMailerOutlook
+var nodeoutlook = require('nodejs-nodemailer-outlook')
+
 // Creating telegram api const
 const TelegramBot = require('node-telegram-bot-api');
 
@@ -52,8 +54,25 @@ bot.on('message', async (msg) => {
         await bot.sendMessage(chatId, 'Ваш номер телефона: ' + data?.phone)
 
         // Example:  Set timeout before send next message
+            // setTimeout(async () => {
+            //     await bot.sendMessage(chatId, 'Всю информацию вы получите в этом чате'); 
+            // }, 3000)
+
             setTimeout(async () => {
-                await bot.sendMessage(chatId, 'Всю информацию вы получите в этом чате'); 
+              const text = `Покупатель ${data?.name}\n Телефон покупателя: ${data?.phone}\n Адрес покупателя: ${data?.street}`
+              //sendOrder(text)
+              nodeoutlook.sendEmail({
+                auth: {
+                    user: process.env.MAIL_ACCOUNT,
+                    pass: process.env.MAIL_PASSWORD
+                },
+                from: process.env.MAIL_ACCOUNT,
+                to: 'dinavl@bk.ru',
+                subject: 'Hey you, awesome!',
+                text: `New buyer here! ${text}`,
+                onError: (e) => console.log(e),
+                onSuccess: (i) => console.log(i)
+              })
             }, 3000)
             
         } catch (e) {
