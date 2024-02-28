@@ -25,7 +25,7 @@ const bot = new TelegramBot(process.env.BOT_TOKEN, {polling: true});
 // WebApp URL
 const webAppURL = 'https://greenpatobot.netlify.app'
 
-app.use(expres.json())
+app.use(express.json())
 app.use(cors())
 
 bot.on('message', async (msg) => {
@@ -104,3 +104,7 @@ bot.on('message', async (msg) => {
     }
     
 })
+
+// Launch server
+const PORT = 8000
+app.listen(PORT, () => console.log('Server starded on PORT' + PORT))
