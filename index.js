@@ -7,6 +7,15 @@ require('events').EventEmitter.defaultMaxListeners = 0;
 // Creating NodeMailerOutlook
 var nodeoutlook = require('nodejs-nodemailer-outlook')
 
+// Creating Express
+const express = require('express')
+
+// Creating Cors for prevent issues with crossdomain requests
+const cors = require('cors')
+
+// Create Express App
+const app = express()
+
 // Creating telegram api const
 const TelegramBot = require('node-telegram-bot-api');
 
@@ -15,6 +24,9 @@ const bot = new TelegramBot(process.env.BOT_TOKEN, {polling: true});
 
 // WebApp URL
 const webAppURL = 'https://greenpatobot.netlify.app'
+
+app.use(expres.json())
+app.use(cors())
 
 bot.on('message', async (msg) => {
     // Access to chat Id
