@@ -59,7 +59,7 @@ bot.on('message', async (msg) => {
             // }, 3000)
 
             setTimeout(async () => {
-              const text = `Покупатель ${data?.name}\n Телефон покупателя: ${data?.phone}\n Адрес покупателя: ${data?.street}`
+              const text = `Имя покупателя: ${data?.name}\n Телефон покупателя: ${data?.phone}\n Адрес покупателя: ${data?.street}`
               nodeoutlook.sendEmail({
                 auth: {
                     user: process.env.MAIL_ACCOUNT,
@@ -67,8 +67,8 @@ bot.on('message', async (msg) => {
                 },
                 from: process.env.MAIL_ACCOUNT,
                 to: 'dinavl@bk.ru',
-                subject: 'Hey you, awesome!',
-                text: `New buyer here! ${text}`,
+                subject: `Новый покупатель ${data?.name}, телефон ${data?.phone} `,
+                text: `Контакты нового покупателя:\n ${text}`,
                 //onError: (e) => console.log(e),
                 //onSuccess: (i) => console.log(i)
               })
