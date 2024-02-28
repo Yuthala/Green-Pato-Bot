@@ -24,6 +24,7 @@ bot.on('message', async (msg) => {
        await bot.sendMessage(chatId, 'Чтобы сделать заказ, заполни форму обратной связи и выбери товары', {
         reply_markup: {
             keyboard: [
+                [{text: 'Выбрать товары', web_app: {url: webAppURL}}],
                 [{text: 'Заполнить форму обратной связи', web_app: {url: webAppURL + '/form'}}]
             ]
         }
