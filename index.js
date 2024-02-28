@@ -1,4 +1,5 @@
-require('dotenv').config()
+// Injecting enviroument 
+require('dotenv').config();
 
 // Changing max listeners for node
 require('events').EventEmitter.defaultMaxListeners = 0;
@@ -20,7 +21,7 @@ bot.on('message', async (msg) => {
     
     if (text === '/start') {
        // Markup keyboard "Feedback form"
-       await bot.sendMessage(chatId, 'Ниже появится кнопка, заполни форму обратной связи', {
+       await bot.sendMessage(chatId, 'Чтобы сделать заказ, заполни форму обратной связи и выбери товары', {
         reply_markup: {
             keyboard: [
                 [{text: 'Заполнить форму обратной связи', web_app: {url: webAppURL + '/form'}}]
@@ -29,10 +30,10 @@ bot.on('message', async (msg) => {
        })
        
        // Inline keyboard "Make order"
-       await bot.sendMessage(chatId, 'Сделать заказ', {
+       await bot.sendMessage(chatId, 'Чтобы выбрать товары нажми кнопку', {
         reply_markup: {
             inline_keyboard: [
-                [{text: 'Сделать заказ', web_app: {url: webAppURL}}]
+                [{text: 'Выбрать товары', web_app: {url: webAppURL}}]
             ]
         }
        })
@@ -40,5 +41,5 @@ bot.on('message', async (msg) => {
     }
 
     // Send message to the chat 
-    bot.sendMessage(chatId, 'recived your message')
+    //bot.sendMessage(chatId, 'recived your message')
 })
