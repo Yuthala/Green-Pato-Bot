@@ -107,4 +107,4 @@ bot.on('message', async (msg) => {
 
 // Launch server
 const PORT = 8000
-app.listen(PORT, () => console.log('Server starded on PORT' + PORT))
+app.listen(PORT, () => console.log('Server starded on PORT ' + PORT))
