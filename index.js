@@ -59,7 +59,11 @@ bot.on('message', async (msg) => {
             // }, 3000)
 
             setTimeout(async () => {
+
+                // Customer contacts data
               const text = `Имя покупателя: ${data?.name}\n Телефон покупателя: ${data?.phone}\n Адрес покупателя: ${data?.street}`
+
+              // Sending order information on e-mail
               nodeoutlook.sendEmail({
                 auth: {
                     user: process.env.MAIL_ACCOUNT,
@@ -74,7 +78,7 @@ bot.on('message', async (msg) => {
               })
 
               await bot.sendMessage(chatId, 'Ваши контактные данные отправлены')
-              
+
             }, 3000)
 
             //  Set timeout before send next message
