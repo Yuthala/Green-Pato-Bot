@@ -22,3 +22,35 @@
 .description {
 	font-size: 0.8em;
 }
+
+.count {
+	display: flex;
+	column-gap: 10px;
+	align-items: center;
+}
+
+.count_box {
+	width: 80px;
+	height: 40px;
+	background-color: #EAEFF2;
+	border-radius: 3px;
+}
+
+.count_input {
+	width: 100%;
+	padding-top: 4px;
+	background-color: transparent;
+	text-align: center;
+	font-weight: 600;
+	line-height: 32px;
+	border-radius: 8px;
+}
+.controls {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.controls button {
+	cursor: pointer;
+}
