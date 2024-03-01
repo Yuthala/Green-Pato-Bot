@@ -22,6 +22,10 @@ const ProductList = () => {
 	const [addedItems, setAddedItems] = useState([]);
 	const {tg, queryId} = useTelegram();
 
+	const increaseQty  = () => {
+		console.log('Increase!');
+	}
+
 	const onSendData = useCallback(() => {
         const data = {
             products: addedItems,
@@ -73,6 +77,7 @@ const ProductList = () => {
 					product={item}
 					onAdd={onAdd}
 					className={'item'}
+					increaseQty={increaseQty}
 				/>
 			))}
 		</div>

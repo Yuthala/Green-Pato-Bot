@@ -5,7 +5,7 @@ import IncDecCounter from '../Counter/IncDecCounter';
 
 
 
-const ProductItem = ({product, className, onAdd})=> {
+const ProductItem = ({ product, className, onAdd, increaseQty })=> {
 
 	const onAddHandler = () => {
 		onAdd(product);
@@ -27,7 +27,7 @@ const ProductItem = ({product, className, onAdd})=> {
 					<button type="button" className="count_down">⌄</button>
 				</div>
 			</div> */}
-			<IncDecCounter />
+			<IncDecCounter increaseQty={increaseQty}/>
 		</div>
 			<Button className={'add-btn'} onClick={onAddHandler}>
 				Добавить в корзину
