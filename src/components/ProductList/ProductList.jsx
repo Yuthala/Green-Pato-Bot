@@ -74,6 +74,10 @@ const ProductList = () => {
 					product={item}
 					onAdd={onAdd}
 					className={'item'}
+<<<<<<< HEAD
+=======
+					increaseQty={increaseQty}
+>>>>>>> 0a7ac5e (test)
 				/>
 			))}
 		</div>
