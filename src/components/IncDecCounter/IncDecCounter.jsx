@@ -8,7 +8,7 @@ const IncDecCounter = ({increaseQty}) => {
 	  setNum(Number(num)+1);
 	  }
 	};
-	{increaseQty};
+	//{increaseQty};
 
 	let decNum = () => {
 	   if(num>0)
