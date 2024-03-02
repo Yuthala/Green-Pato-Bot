@@ -108,7 +108,7 @@ const ProductList = () => {
 				<ProductItem
 					product={product}
 					key={product.id}
-					//onAdd={onAdd}
+					onAdd={onAdd}
 					increase={increase}
 					decrease={decrease}
 					className={'item'}
