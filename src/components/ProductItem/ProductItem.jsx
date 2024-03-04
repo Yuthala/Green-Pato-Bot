@@ -7,7 +7,7 @@ import Count from './../Count/Count';
 
 const ProductItem = ({ product, className, onAdd, increase, decrease})=> {
 
-	const { img, title, description, price, count, id } = product;
+	const { img, title, description, price, count, id, changeValue } = product;
 
 	const onAddHandler = () => {
 		onAdd(product);
@@ -34,7 +34,7 @@ const ProductItem = ({ product, className, onAdd, increase, decrease})=> {
 				increase={increase} 
 				decrease={decrease} 
 				id={id}
-				// changeValue={changeValue}
+				changeValue={changeValue}
 			/>
 
 		</div>

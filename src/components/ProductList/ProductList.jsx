@@ -3,6 +3,7 @@ import './ProductList.css';
 import ProductItem from '../ProductItem/ProductItem';
 import { useTelegram } from '../../hooks/useTelegram';
 import { useCallback, useEffect, useState } from 'react';
+import Button from '../Button/Button';
 
 //Вынести в базу данных
 const products = [
@@ -13,55 +14,56 @@ const products = [
 ]
 
 
-// const getTotalPrice = (items = []) => {
-// 	return items.reduce((acc, item) => {
-// 		return acc += item.price * item.count
-// 	}, 0)
-// }
+const getTotalPrice = (items = []) => {
+	return items.reduce((acc, item) => {
+		return acc += item.price * item.count
+	}, 0)
+}
 
 const ProductList = () => {
-	const [addedItems, setAddedItems] = useState(products);
+	const [addedItems, setAddedItems] = useState([]);
 	const {tg, queryId} = useTelegram();
-
-	// const onSendData = useCallback(() => {
-    //     const data = {
-    //         products: addedItems,
-	// 		totalPrice: getTotalPrice(addedItems),
-	// 		queryId
-    //     }
-    //     fetch('http://localhost:8000', { //указать актуальный публичный IP-адрес сервера, где лежит бот, и /web-data (в данном примере) - взять эндпоинт из строки app.post первый аргумент
-	// 		method: 'POST',
-	// 		headers: {
-	// 			'Content-Type': 'application/json',
-	// 		},
-	// 		body: JSON.stringify(data)
-	// 	})
-    // }, [addedItems])
-
-	// useEffect( ()=> {
-	// 	tg.onEvent('mainButtonClicked', onSendData)
-	// 		return ()=> {
-	// 			tg.offEvent('mainButtonClicked', onSendData)
-	// 		}
-	// 	}, [onSendData])
 
 	//КОРЗИНА
 	//функция увеличения количества товара в корзине
-		const increase = (id) => {
-
-			setAddedItems((addedItems) => {
-				return addedItems.map((product) => {
-					if (product.id === id) {
-						return {
-							...product,
-								count: product.count + 1,
-						};
-					}
-					return product;
-				})
+	const increase = (id) => {
+		setAddedItems((addedItems) => {
+			return addedItems.map((product) => {
+				if (product.id === id) {
+					return {
+						...product,
+							count: product.count + 1,
+					};
+				}
+				return product;
 			})
-		}
+		})
+	}
 
+
+	const onSendData = useCallback(() => {
+        const data = {
+            products: addedItems,
+			totalPrice: getTotalPrice(addedItems),
+			queryId
+        }
+        fetch('http://localhost:8000', { //указать актуальный публичный IP-адрес сервера, где лежит бот, и /web-data (в данном примере) - взять эндпоинт из строки app.post первый аргумент
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data)
+		})
+    }, [addedItems])
+
+	useEffect( ()=> {
+		tg.onEvent('mainButtonClicked', onSendData)
+			return ()=> {
+				tg.offEvent('mainButtonClicked', onSendData)
+			}
+		}, [onSendData])
+
+	
 	//КОРЗИНА
 	//функция уменьшения количества товара в корзине
 	const decrease = (id) => {
@@ -80,27 +82,27 @@ const ProductList = () => {
 		})
 	}
 
-	// const onAdd = (product) => {
-	// 	const alreadyAdded = addedItems.find(item => item.id === product.id);
-	// 	let newItems = [];
+	const onAdd = (product) => {
+		const alreadyAdded = addedItems.find(item => item.id === product.id);
+		let newItems = [];
 
-	// 	if(alreadyAdded) {
-	// 		newItems = addedItems.filter(item => item.id !== product.id);
-	// 	} else {
-	// 		newItems = [...addedItems, product];
-	// 	}
+		if(alreadyAdded) {
+			newItems = addedItems.filter(item => item.id !== product.id);
+		} else {
+			newItems = [...addedItems, product];
+		}
 
-	// setAddedItems(newItems)
+	setAddedItems(newItems)
 
-	// 	if(newItems.length === 0) {
-	// 		tg.MainButton.hide();
-	// 	} else {
-	// 		tg.MainButton.show();
-	// 		tg.MainButton.setParams({
-	// 			text: `Купить ${getTotalPrice(newItems)}`
-	// 		})
-	// 	}
-	// }
+		if(newItems.length === 0) {
+			tg.MainButton.hide();
+		} else {
+			tg.MainButton.show();
+			tg.MainButton.setParams({
+				text: `Купить ${getTotalPrice(newItems)}`
+			})
+		}
+	}
 
 	return (
 		<div className={'list'}>
@@ -108,7 +110,7 @@ const ProductList = () => {
 				<ProductItem
 					product={product}
 					key={product.id}
-					//onAdd={onAdd}
+					onAdd={onAdd}
 					increase={increase}
 					decrease={decrease}
 					className={'item'}
