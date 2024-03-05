@@ -2,21 +2,31 @@ import React, {useEffect, useState, useCallback} from "react";
 import './Form.css';
 import { useTelegram } from "../../hooks/useTelegram";
 
+
+// 1 Создание объекта "Форма(Form)"
 const Form =() => {
 
+	//  1.1 Костанты для отслеживания состояния объектов ... с использованием useState()
+	// Объект name из формы
 	const [name, setname] = useState('');
+	// Объект street из формы
 	const [street, setStreet] = useState('');
+	// Объект phone из формы
 	const [phone, setPhone] = useState('');
+	// Объект tg
 	const {tg} = useTelegram();
 
+	// 1.2 Передача данных в Telegram, TODO: Что такое Use callback??
     const onSendData = useCallback(() => {
+		// Объект для передачи в Telegram
         const data = {
             name,
             street,
             phone
         }
+		// 1.3 Вызов функции передачи объекта в Telegram 
         tg.sendData(JSON.stringify(data));
-    }, [name, street, phone])
+    }, [name, street, phone]) // TODO - Зачем нужен массив в useCallBack??
 
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', onSendData)
@@ -25,13 +35,15 @@ const Form =() => {
 			}
 		}, [onSendData])
 
-	//цвет, текст кнопки
+	//цвет, текст кнопки, TODO: Что такое useEffect ??
+	// 1.4 Установка текста для Главной кнопки
 	useEffect( () => {
 		tg.MainButton.setParams( {
 			text: 'Отправить данные'
 		})
 	}, [])
 
+	// 1.5 Отслеживание значений в элементах Формы, чтобы показать или скрыть Главную кнопку
 	useEffect( () => {
 		if(!street || !name) {
 			tg.MainButton.hide();
@@ -40,6 +52,7 @@ const Form =() => {
 		}
 	}, [name, street])
 
+	// 1.6 Как обработать изменение значения объектов в Форме
 	const onChangeName = (e) => {
 		setname(e.target.value)
 	}
@@ -52,6 +65,7 @@ const Form =() => {
 		setPhone(e.target.value)
 	}
 
+	// Отрисовка Формы на странице
 	return (
 		<div className={"form"}>
 			<h3>Введите ваши данные</h3>

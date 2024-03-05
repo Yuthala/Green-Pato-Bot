@@ -5,7 +5,7 @@ import ProductItem from '../ProductItem/ProductItem';
 import { useTelegram } from '../../hooks/useTelegram';
 //import { useCallback, useEffect, useState } from 'react';
 
-//Вынести в базу данных
+// TODO:Вынести в базу данных
 const products = [
 	{id: '1', title: 'Картофель', price: 75, description: 'сорт Импала, кг', img: "img/potatoes.jpg", count: 1},
 	{id: '2', title: 'Томаты', price: 150, description: 'сорт Розовые, кг', img: "img/tomatoes.jpg", count: 1},
@@ -13,15 +13,20 @@ const products = [
 	{id: '4', title: 'Огруцы', price: 120, description: 'сорт ТСХ, 600 г', img: "img/cucumber.jpg", count: 1}
 ]
 
-
+// Подсчёт стоимости всех товаров в массиве с учётом количества
 const getTotalPrice = (items = []) => {
 	return items.reduce((acc, item) => {
 		return acc += item.price * item.count
 	}, 0)
 }
 
+//  1 Создание объекта Product list(Список Товаров)
 const ProductList = () => {
+
+	// 1.1 Константы для отслеживания состояния объектов
+	// Отслеживается объект addedItems
 	const [addedItems, setAddedItems] = useState([]);
+	// Отслеживание объекта tg 
 	const {tg, queryId} = useTelegram();
 
 	const onSendData = useCallback(() => {
