@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useEffect, useState, useCallback} from "react";
+//import React from 'react';
 import './ProductList.css';
 import ProductItem from '../ProductItem/ProductItem';
 import { useTelegram } from '../../hooks/useTelegram';
-import { useCallback, useEffect, useState } from 'react';
+//import { useCallback, useEffect, useState } from 'react';
 
 //Вынести в базу данных
 const products = [
