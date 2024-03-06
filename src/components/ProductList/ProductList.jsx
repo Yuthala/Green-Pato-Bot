@@ -15,7 +15,7 @@ const products = [
 // Подсчёт стоимости всех товаров в массиве с учётом количества
 const getTotalPrice = (items = []) => {
 	return items.reduce((acc, item) => {
-		return acc += item.price * item.count
+		return acc += item.price
 	}, 0)
 }
 
