@@ -29,12 +29,15 @@ const ProductList = () => {
 	// Отслеживание объекта tg 
 	const {tg, queryId} = useTelegram();
 
+	// 1.2 Передача данных в Telegram
 	const onSendData = useCallback(() => {
+		// Объект для передачи в Telegram
         const data = {
             products: addedItems,
 			totalPrice: getTotalPrice(addedItems),
 			queryId
         }
+		// TODO: Поменять на код из form.jsx 1.3 пункт
         fetch('/localhost:8000/web-data', { //указать актуальный публичный IP-адрес сервера, где лежит бот, и /web-data (в данном примере) - взять эндпоинт из строки app.post первый аргумент
 			method: 'POST',
 			headers: {

@@ -45,6 +45,7 @@ const Form =() => {
 
 	// 1.5 Отслеживание значений в элементах Формы, чтобы показать или скрыть Главную кнопку
 	useEffect( () => {
+		// TODO: изменить на tg.onToggleButton?? Протестировать!!
 		if(!street || !name) {
 			tg.MainButton.hide();
 		} else {
