@@ -1,9 +1,8 @@
 import React, {useEffect, useState, useCallback} from "react";
-//import React from 'react';
 import './ProductList.css';
 import ProductItem from '../ProductItem/ProductItem';
 import { useTelegram } from '../../hooks/useTelegram';
-//import { useCallback, useEffect, useState } from 'react';
+
 
 // TODO:Вынести в базу данных
 const products = [
@@ -38,13 +37,14 @@ const ProductList = () => {
 			queryId
         }
 		// TODO: Поменять на код из form.jsx 1.3 пункт
-        fetch('/localhost:8000/web-data', { //указать актуальный публичный IP-адрес сервера, где лежит бот, и /web-data (в данном примере) - взять эндпоинт из строки app.post первый аргумент
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(data)
-		})
+        // fetch('/localhost:8000/web-data', { //указать актуальный публичный IP-адрес сервера, где лежит бот, и /web-data (в данном примере) - взять эндпоинт из строки app.post первый аргумент
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// 	body: JSON.stringify(data)
+		// })
+	tg.sendData(JSON.stringify(data));
     }, [addedItems])
 
 	useEffect( ()=> {
