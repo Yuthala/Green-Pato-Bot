@@ -22,7 +22,7 @@ const TelegramBot = require('node-telegram-bot-api');
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(process.env.BOT_TOKEN, {polling: true});
 
-// WebApp URL
+// WebApp URL 
 const webAppURL = 'https://greenpatobot.netlify.app'
 
 app.use(express.json())
@@ -60,7 +60,7 @@ bot.on('message', async (msg) => {
     if (msg?.web_app_data?.data) {
         try {
         const data = JSON.parse(msg?.web_app_data.data)
-        //console.log(data)
+        console.log(data)
         await bot.sendMessage(chatId, `Спасибо ${data?.name}, контактные данные получены`)
         await bot.sendMessage(chatId, 'Ваш адрес: ' + data?.street)
         await bot.sendMessage(chatId, 'Ваш номер телефона: ' + data?.phone)
@@ -76,18 +76,18 @@ bot.on('message', async (msg) => {
               const text = `Имя покупателя: ${data?.name}\n Телефон покупателя: ${data?.phone}\n Адрес покупателя: ${data?.street}`
 
               // Sending order information on e-mail
-              nodeoutlook.sendEmail({
-                auth: {
-                    user: process.env.MAIL_ACCOUNT,
-                    pass: process.env.MAIL_PASSWORD
-                },
-                from: process.env.MAIL_ACCOUNT,
-                to: 'dinavl@bk.ru',
-                subject: `Новый покупатель ${data?.name}, телефон ${data?.phone} `,
-                text: `Контакты нового покупателя:\n ${text}`,
-                //onError: (e) => console.log(e),
-                //onSuccess: (i) => console.log(i)
-              })
+             nodeoutlook.sendEmail({
+                    auth: {
+                        user: process.env.MAIL_ACCOUNT,
+                        pass: process.env.MAIL_PASSWORD
+                    },
+                    from: process.env.MAIL_ACCOUNT,
+                    to: 'dinavl@bk.ru',
+                    subject: `Новый покупатель ${data?.name}, телефон ${data?.phone} `,
+                    text: `Контакты нового покупателя:\n ${text}`,
+                    //onError: (e) => console.log(e),
+                    //onSuccess: (i) => console.log(i)
+                })
 
               await bot.sendMessage(chatId, 'Ваши контактные данные отправлены')
 
@@ -107,7 +107,9 @@ bot.on('message', async (msg) => {
 
 app.post('/web-data', async (req, res) => {
     const {queryId, products = [], totalPrice} = req.body
+
     try {
+     console.log(queryId)
         await bot.answerWebAppQuery(queryId, {
             type: 'article',
             id: queryId,
