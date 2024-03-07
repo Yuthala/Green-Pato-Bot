@@ -1,4 +1,6 @@
 const Count = ({count, increase, decrease, changeValue, id}) => {
+
+	
 	return ( 
 		<div className="count">
 			<div className="count__box">

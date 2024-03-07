@@ -59,13 +59,6 @@ const ProductList = () => {
 	//функция увеличения количества товара в корзине
 		const increase = (product) => {
 
-			const foundProduct = addedItems.find(function(item) {
-				return item.id === product.id
-			})
-			foundProduct.count += 1;
-
-			setAddedItems(addedItems);
-
 			// setAddedItems((addedItems) => {
 			// 	return addedItems.map((product) => {
 			// 		if (product.id === id) {
@@ -81,7 +74,7 @@ const ProductList = () => {
 
 	//КОРЗИНА
 	//функция уменьшения количества товара в корзине
-	const decrease = (id) => {
+	const decrease = (product) => {
 
 		// setAddedItems((addedItems) => {
 		// 	return addedItems.map((product) => {

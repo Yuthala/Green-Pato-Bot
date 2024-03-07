@@ -1,18 +1,18 @@
 import React from "react";
 import Button from "../Button/Button";
 import './ProductItem.css';
-//import IncDecCounter from './../IncDecCounter/IncDecCounter';
+// import IncDecCounter from './../IncDecCounter/IncDecCounter';
 import Count from './../Count/Count';
 
 
-const ProductItem = ({ product, className, onAdd, increase, decrease})=> {
+	const ProductItem = ({ product, className, onAdd, increase, decrease})=> {
 
 	const { img, title, description, price, count, id } = product;
 
 	const onAddHandler = () => {
 		onAdd(product);
 	}
- 
+
 	return (
 		<div className={'product' + className}>
 			<div className={'img'}><img src={img}/></div>
@@ -28,13 +28,13 @@ const ProductItem = ({ product, className, onAdd, increase, decrease})=> {
 					<button type="button" className="count_down">⌄</button>
 				</div>
 			</div> */}
-			{/* <IncDecCounter increaseQty={increaseQty}/> */}
+			{/* <IncDecCounter increaseQty={increaseQtyHandler}/> */}
 			<Count 
 				count={count} 
 				increase={increase} 
 				decrease={decrease} 
 				id={id}
-				// changeValue={changeValue}
+				//changeValue={changeValue}
 			/>
 
 		</div>

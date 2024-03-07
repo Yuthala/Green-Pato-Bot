@@ -8,7 +8,7 @@ const IncDecCounter = ({increaseQty}) => {
 	  setNum(Number(num)+1);
 	  }
 	};
-	//{increaseQty};
+	{increaseQty};
 
 	let decNum = () => {
 	   if(num>0)
@@ -21,13 +21,13 @@ const IncDecCounter = ({increaseQty}) => {
 	}
 	 return(
 	  <div className="col-xl-1">
-	 	 <div class="input-group">
-			<div class="input-group-prepend">
-	  			<button class="btn btn-outline-primary" type="button" onClick={decNum}>-</button>
+	 	 <div className="input-group">
+			<div className="input-group-prepend">
+	  			<button className="btn btn-outline-primary" type="button" onClick={decNum}>-</button>
 			</div>
-			<input type="text" class="form-control" value={num} onChange={handleChange}/>
-			<div class="input-group-prepend">
-	  			<button class="btn btn-outline-primary" type="button" onClick={incNum}>+</button>
+			<input type="text" className="form-control" value={num} onChange={handleChange}/>
+			<div className="input-group-prepend">
+	  			<button className="btn btn-outline-primary" type="button" onClick={incNum}>+</button>
 			</div>
   		</div>
   	</div>
