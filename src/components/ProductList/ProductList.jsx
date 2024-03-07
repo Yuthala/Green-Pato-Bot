@@ -44,6 +44,7 @@ const ProductList = () => {
 			},
 			body: JSON.stringify(data)
 		})
+
 	tg.sendData(JSON.stringify(data));
     }, [addedItems])
 
@@ -81,7 +82,7 @@ const ProductList = () => {
 
 					return {
 						...product,
-							count: product.count - 1 > 1 ? product.count - 1 : 1,
+							count: product.count - 1 < 1 ? product.count - 1 : 1,
 					};
 				}
 				return product;
