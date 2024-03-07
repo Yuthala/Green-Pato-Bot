@@ -15,7 +15,7 @@ const products = [
 // Подсчёт стоимости всех товаров в массиве с учётом количества
 const getTotalPrice = (items = []) => {
 	return items.reduce((acc, item) => {
-		return acc += item.price
+		return acc += item.price * item.count
 	}, 0)
 }
 
@@ -96,12 +96,12 @@ const ProductList = () => {
 		
 		if(alreadyAdded) {
 			//newItems = addedItems.filter(item => item.count += 1);
-			const foundItem = addedItems.find(function(item) {
+		const foundItem = addedItems.find(function(item) {
 			return item.id === product.id
 		})
 		foundItem.count += 1
 		newItems = addedItems
-		
+
 		} else {
 			newItems = [...addedItems, product];
 		}
