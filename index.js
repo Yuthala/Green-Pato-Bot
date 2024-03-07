@@ -35,6 +35,7 @@ bot.on('message', async (msg) => {
 
     
     if (text === '/start') {
+        
        // Markup keyboard "Feedback form"
        await bot.sendMessage(chatId, 'Чтобы сделать заказ, заполни форму обратной связи и выбери товары', {
         reply_markup: {
