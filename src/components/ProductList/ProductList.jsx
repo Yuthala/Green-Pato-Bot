@@ -56,38 +56,38 @@ const ProductList = () => {
 
 	//КОРЗИНА
 	//функция увеличения количества товара в корзине
-	// 	const increase = (id) => {
+		const increase = (id) => {
 
-	// 		setAddedItems((addedItems) => {
-	// 			return addedItems.map((product) => {
-	// 				if (product.id === id) {
-	// 					return {
-	// 						...product,
-	// 							count: product.count + 1,
-	// 					};
-	// 				}
-	// 				return product;
-	// 			})
-	// 		})
-	// 	}
+			setAddedItems((addedItems) => {
+				return addedItems.map((product) => {
+					if (product.id === id) {
+						return {
+							...product,
+								count: product.count + 1,
+						};
+					}
+					return product;
+				})
+			})
+		}
 
-	// //КОРЗИНА
-	// //функция уменьшения количества товара в корзине
-	// const decrease = (id) => {
+	//КОРЗИНА
+	//функция уменьшения количества товара в корзине
+	const decrease = (id) => {
 
-	// 	setAddedItems((addedItems) => {
-	// 		return addedItems.map((product) => {
-	// 			if (product.id === id) {;
+		setAddedItems((addedItems) => {
+			return addedItems.map((product) => {
+				if (product.id === id) {;
 
-	// 				return {
-	// 					...product,
-	// 						count: product.count - 1 > 1 ? product.count - 1 : 1,
-	// 				};
-	// 			}
-	// 			return product;
-	// 		})
-	// 	})
-	// }
+					return {
+						...product,
+							count: product.count - 1 > 1 ? product.count - 1 : 1,
+					};
+				}
+				return product;
+			})
+		})
+	}
 
 	const onAdd = (product) => {
 		const alreadyAdded = addedItems.find(item => item.id === product.id);
