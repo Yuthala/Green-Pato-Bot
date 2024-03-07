@@ -3,6 +3,8 @@ import Button from "../Button/Button";
 import './ProductItem.css';
 // import IncDecCounter from './../IncDecCounter/IncDecCounter';
 import Count from './../Count/Count';
+import QtyField from "../Counter/QtyField/QtyField";
+import PlusButton from "../Counter/PlusButton/PlusButton";
 
 
 	const ProductItem = ({ product, className, onAdd, increase, decrease})=> {
@@ -30,12 +32,16 @@ import Count from './../Count/Count';
 			</div> */}
 			{/* <IncDecCounter increaseQty={increaseQtyHandler}/> */}
 			<Count 
-				count={count} 
+				//count={count} 
 				increase={increase} 
 				decrease={decrease} 
 				id={id}
 				//changeValue={changeValue}
 			/>
+		<div>
+			<QtyField count={count}/>
+			<PlusButton />
+		</div>
 
 		</div>
 			<Button className={'add-btn'} onClick={onAddHandler}>

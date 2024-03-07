@@ -128,6 +128,7 @@ const ProductList = () => {
 					increase={increase}
 					decrease={decrease}
 					className={'item'}
+					count={product.count}
 				/>
 			))}
 		</div>
