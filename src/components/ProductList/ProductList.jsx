@@ -37,13 +37,13 @@ const ProductList = () => {
 			queryId
         }
 		//TODO: Поменять на код из form.jsx 1.3 пункт
-        fetch('/localhost:8000/web-data', { //указать актуальный публичный IP-адрес сервера, где лежит бот, и /web-data (в данном примере) - взять эндпоинт из строки app.post первый аргумент
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(data)
-		})
+        // fetch('/localhost:8000/web-data', { //указать актуальный публичный IP-адрес сервера, где лежит бот, и /web-data (в данном примере) - взять эндпоинт из строки app.post первый аргумент
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// 	body: JSON.stringify(data)
+		// })
 
 	tg.sendData(JSON.stringify(data));
     }, [addedItems])
