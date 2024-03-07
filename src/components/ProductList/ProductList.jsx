@@ -95,10 +95,7 @@ const ProductList = () => {
 		let newItems = [];
 
 		if(alreadyAdded) {
-			const itemIndex = addedItems.findIndex(product.id)
-			addedItems[itemIndex].count += 1
-			newItems = addedItems
-			//newItems = addedItems.filter(item => item.id !== product.id);
+			newItems = addedItems.filter(item => item.count += 1);
 		} else {
 			newItems = [...addedItems, product];
 		}
