@@ -91,14 +91,15 @@ const ProductList = () => {
 	}
 
 	const onAdd = (product) => { // TODO: Add Count Increase Decrease logic
-		//const alreadyAdded = addedItems.find(item => item.id === product.id);
+		const alreadyAdded = addedItems.find(item => item.id === product.id);
 		let newItems = [];
 
-		//if(alreadyAdded) {
+		if(alreadyAdded) {
+			item.count += 1
 			//newItems = addedItems.filter(item => item.id !== product.id);
-		//} else {
+		} else {
 			newItems = [...addedItems, product];
-		//}
+		}
 
 	setAddedItems(newItems)
 
