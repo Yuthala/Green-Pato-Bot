@@ -57,7 +57,14 @@ const ProductList = () => {
 
 	//КОРЗИНА
 	//функция увеличения количества товара в корзине
-		const increase = (id) => {
+		const increase = (product) => {
+
+			const foundProduct = addedItems.find(function(item) {
+				return item.id === product.id
+			})
+			foundProduct.count += 1;
+
+			setAddedItems(addedItems);
 
 			// setAddedItems((addedItems) => {
 			// 	return addedItems.map((product) => {
