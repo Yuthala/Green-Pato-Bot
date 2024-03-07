@@ -90,7 +90,7 @@ const ProductList = () => {
 		// })
 	}
 
-	const onAdd = (product) => {
+	const onAdd = (product) => { // TODO: Add Count Increase Decrease logic
 		//const alreadyAdded = addedItems.find(item => item.id === product.id);
 		let newItems = [];
 
