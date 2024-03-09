@@ -45,7 +45,7 @@ const Form =() => {
 
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', function() {
-			tg.window.open('https://greenpatobot.netlify.app')
+			window.open('https://greenpatobot.netlify.app')
 		})
 		
 	},[])
