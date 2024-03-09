@@ -50,17 +50,13 @@ const ProductList = () => {
     }, [addedItems])
 
 	useEffect( ()=> {
-
-		tg.onEvent('mainButtonClicked', function() {
-			tg.openTelegramLink('https://greenpatobot.netlify.app/form')
-		})
-
-		// tg.onEvent('mainButtonClicked', onSendData)
-		// 	return ()=> {
-		// 		tg.offEvent('mainButtonClicked', onSendData)
-		// 	}
-		// }, [onSendData])
-	})
+		tg.onEvent('mainButtonClicked', onSendData)
+		tg.openTelegramLink('https://greenpatobot.netlify.app/form')
+			return ()=> {
+				tg.offEvent('mainButtonClicked', onSendData)
+			}
+		}, [onSendData])
+	
 
 	//КОРЗИНА
 	//функция увеличения количества товара в корзине
