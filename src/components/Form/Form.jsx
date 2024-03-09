@@ -50,7 +50,7 @@ const Form =() => {
 		tg.MainButton.onClick(function() {
 			tg.openTelegramLink('https://greenpatobot.netlify.app')
 		})
-	})
+	},[])
 
 	// 1.5 Отслеживание значений в элементах Формы, чтобы показать или скрыть Главную кнопку
 	useEffect( () => {
