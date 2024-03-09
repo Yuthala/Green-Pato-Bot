@@ -32,40 +32,22 @@ const ProductList = () => {
 	// 1.2 Передача данных в Telegram --
 	const onSendData = useCallback(() => {
 		// Объект для передачи в Telegram
-        // const data = {
-        //     products: addedItems,
-		// 	totalPrice: getTotalPrice(addedItems),
-		// 	queryId
-        // }
-		const data = orderCartData
-	tg.sendData(JSON.stringify(data));
+        const data = {
+            products: addedItems,
+			totalPrice: getTotalPrice(addedItems),
+			queryId
+        }
+		 orderCartData = data
+	//tg.sendData(JSON.stringify(data));
     }, [addedItems])
 
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', onSendData)
-
-		orderCartData = {
-			products: addedItems,
-			totalPrice: getTotalPrice(addedItems),
-			queryId
-		}
+		window.location.href = "https://greenpatobot.netlify.app/form"
 			return ()=> {
 				tg.offEvent('mainButtonClicked', onSendData)
 			}
 		}, [onSendData])
-
-	
-	// useEffect( ()=> {
-	// 	tg.onEvent('mainButtonClicked', function() {
-			// orderCartData = {
-			// 	products: addedItems,
-			// 	totalPrice: getTotalPrice(addedItems),
-			// 	queryId
-			// }
-	// 		window.location.href = "https://greenpatobot.netlify.app/form"
-			
-	// 	})
-	// },[])
 	
 
 	//КОРЗИНА
