@@ -50,6 +50,7 @@ const ProductList = () => {
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', function() {
 			window.location.href = "https://greenpatobot.netlify.app/form"
+			onSendData
 		})
 		
 		//tg.onEvent('mainButtonClicked', onSendData) 
