@@ -51,7 +51,6 @@ const ProductList = () => {
 
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', onSendData)
-		tg.openTelegramLink('https://greenpatobot.netlify.app/form')
 			return ()=> {
 				tg.offEvent('mainButtonClicked', onSendData)
 			}
