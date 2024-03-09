@@ -43,9 +43,10 @@ const Form =() => {
 		})
 	}, [])
 
+
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', function() {
-			tg.openTelegramLink('https://greenpatobot.netlify.app')
+			tg.openLink('https://greenpatobot.netlify.app')
 		})
 		
 	},[])
