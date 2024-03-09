@@ -55,10 +55,10 @@ const ProductList = () => {
 			tg.openLInk('https://greenpatobot.netlify.app/form')
 		})
 
-		tg.onEvent('mainButtonClicked', onSendData)
-			return ()=> {
-				tg.offEvent('mainButtonClicked', onSendData)
-			}
+		// tg.onEvent('mainButtonClicked', onSendData)
+		// 	return ()=> {
+		// 		tg.offEvent('mainButtonClicked', onSendData)
+		// 	}
 		}, [onSendData])
 
 
