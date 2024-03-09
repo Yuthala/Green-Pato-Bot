@@ -45,7 +45,7 @@ const Form =() => {
 
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', function() {
-			window.open('https://greenpatobot.netlify.app')
+			alert('Main button clicked')
 		})
 		
 	},[])
