@@ -2,6 +2,7 @@ import React, {useEffect, useState, useCallback} from "react";
 import './ProductList.css';
 import ProductItem from '../ProductItem/ProductItem';
 import { useTelegram } from '../../hooks/useTelegram';
+import { orderCartData } from '../../hooks/CustomerData';
 
 
 // TODO:Вынести в базу данных
@@ -49,7 +50,7 @@ const ProductList = () => {
 	
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', function() {
-			tg.orderCartData = {
+			orderCartData = {
 				products: addedItems,
 				totalPrice: getTotalPrice(addedItems),
 				queryId

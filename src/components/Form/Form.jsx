@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useCallback} from "react";
 import './Form.css';
 import { useTelegram } from "../../hooks/useTelegram";
+import { orderCartData } from '../../hooks/CustomerData';
 
 // 1 Создание объекта "Форма(Form)"
 const Form =() => {
@@ -21,8 +22,10 @@ const Form =() => {
         const data = {
             name,
             street,
-            phone
+            phone,
+			orderCartData
         }
+		
 		// 1.3 Вызов функции передачи объекта в Telegram 
         tg.sendData(JSON.stringify(data));
     }, [name, street, phone]) // TODO - Зачем нужен массив в useCallBack??

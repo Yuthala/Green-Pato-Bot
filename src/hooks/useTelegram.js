@@ -6,8 +6,6 @@ export function useTelegram() {
 		tg.close()
 	};
 
-	const orderCartData = {};
-
 	const onToggleButton = () => {
 		if(tg.MainButton.isVisible) {
 			tg.MainButton.hide();
@@ -21,6 +19,6 @@ export function useTelegram() {
 		onToggleButton,
 		tg,
 		user: tg.initDataUnsafe?.user,
-		queryId: tg.initDataUnsafe?.query_id
+		queryId: tg.initDataUnsafe?.query_id,
 	}
 };
