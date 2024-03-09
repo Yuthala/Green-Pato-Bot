@@ -32,13 +32,13 @@ const ProductList = () => {
 	// 1.2 Передача данных в Telegram --
 	const onSendData = useCallback(() => {
 		// Объект для передачи в Telegram
-         orderCartData = {
+         const data = {
             products: addedItems,
 			totalPrice: getTotalPrice(addedItems),
 			queryId
         }
 		//orderCartData = data
-	tg.sendData(JSON.stringify(orderCartData));
+	tg.sendData(JSON.stringify(data));
     }, [addedItems])
 
 	useEffect( ()=> {
