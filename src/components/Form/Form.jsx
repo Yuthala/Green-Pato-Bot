@@ -45,7 +45,7 @@ const Form =() => {
 
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', function() {
-			alert('Main button clicked')
+			window.location.href = "https://ya.ru"
 		})
 		
 	},[])
