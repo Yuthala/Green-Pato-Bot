@@ -6,6 +6,8 @@ export function useTelegram() {
 		tg.close()
 	};
 
+	const orderCartData = {};
+
 	const onToggleButton = () => {
 		if(tg.MainButton.isVisible) {
 			tg.MainButton.hide();

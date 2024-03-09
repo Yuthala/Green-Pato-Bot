@@ -49,13 +49,18 @@ const ProductList = () => {
 	
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', function() {
+			tg.orderCartData = {
+				products: addedItems,
+				totalPrice: getTotalPrice(addedItems),
+				queryId
+			};
 			window.location.href = "https://greenpatobot.netlify.app/form"
-			onSendData
+			
 		})
 		
 		//tg.onEvent('mainButtonClicked', onSendData) 
 		
-	},[onSendData])
+	},[])
 	
 
 	//КОРЗИНА
