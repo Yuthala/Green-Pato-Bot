@@ -2,15 +2,15 @@ import React, {useEffect, useState, useCallback} from "react";
 import './ProductList.css';
 import ProductItem from '../ProductItem/ProductItem';
 import { useTelegram } from '../../hooks/useTelegram';
-import { orderCartData } from '../../hooks/CustomerData';
+//import { orderCartData } from '../../hooks/CustomerData';
 
 
 // TODO:Вынести в базу данных
 const products = [
-	{id: '1', title: 'Картофель', price: 75, description: 'сорт Импала, кг', img: "img/potatoes.jpg", count: 1},
-	{id: '2', title: 'Томаты', price: 150, description: 'сорт Розовые, кг', img: "img/tomatoes.jpg", count: 1},
-	{id: '3', title: 'Баклажаны', price: 80, description: 'сорт Алмаз, кг', img: "img/eggplant.jpg", count: 1},
-	{id: '4', title: 'Огруцы', price: 120, description: 'сорт ТСХ, 600 г', img: "img/cucumber.jpg", count: 1}
+	{id: '1', title: 'Картофель', price: 75, description: 'сорт Импала, кг', img: "img/potatoes.jpg"},
+	{id: '2', title: 'Томаты', price: 150, description: 'сорт Розовые, кг', img: "img/tomatoes.jpg"},
+	{id: '3', title: 'Баклажаны', price: 80, description: 'сорт Алмаз, кг', img: "img/eggplant.jpg"},
+	{id: '4', title: 'Огруцы', price: 120, description: 'сорт ТСХ, 600 г', img: "img/cucumber.jpg"}
 ]
 
 // Подсчёт стоимости всех товаров в массиве с учётом количества
@@ -53,11 +53,11 @@ const ProductList = () => {
 			}
 		}, [onSendData])
 
-	// useEffect( ()=> {
-	// 	tg.onEvent('mainButtonClicked', function() {
-	// 		window.location.href = "https://greenpatobot.netlify.app/form"
-	// 	})
-	// })
+	useEffect( ()=> {
+		tg.onEvent('mainButtonClicked', function() {
+			window.location.href = "https://greenpatobot.netlify.app/form"
+		})
+	})
 
 	//КОРЗИНА
 	//функция увеличения количества товара в корзине
@@ -76,7 +76,6 @@ const ProductList = () => {
 			// })
 		}
 
-	//КОРЗИНА
 	//функция уменьшения количества товара в корзине
 	const decrease = (product) => {
 
@@ -94,23 +93,35 @@ const ProductList = () => {
 		// })
 	}
 
-	const onAdd = (product) => { // TODO: Add Count Increase Decrease logic
-		const alreadyAdded = addedItems.find(item => item.id === product.id);
-		let newItems = [];
+	// const onAdd = (product) => { // TODO: Add Count Increase Decrease logic
+	// 	const alreadyAdded = addedItems.find(item => item.id === product.id);
+	// 	let newItems = [];
 		
-		if(alreadyAdded) {
-			//newItems = addedItems.filter(item => item.count += 1);
-		const foundItem = addedItems.find(function(item) {
-			return item.id === product.id
-		})
-		foundItem.count += 1
-		newItems = addedItems
+	// 	if(alreadyAdded) {
+	// 		//newItems = addedItems.filter(item => item.count += 1);
+	// 	const foundItem = addedItems.find(function(item) {
+	// 		return item.id === product.id
+	// 	})
+	// 	foundItem.count += 1
+	// 	newItems = addedItems
 
+	// 	} else {
+	// 		newItems = [...addedItems, product];
+	// 	}
+
+	const onAdd = (product) => {
+		const alreadyAdded = addedItems.find((item) => item.id === product.id);
+		let newItems =[];
+
+		if (alreadyAdded) {
+			newItems = addedItems.map((item) => 
+					item.id === product.id ? {...alreadyAdded, quantity: alreadyAdded.quantity + 1} : item
+				)
 		} else {
-			newItems = [...addedItems, product];
+			newItems = [...addedItems, {...product, quantity: 1}];
 		}
 
-	setAddedItems(newItems)
+		setAddedItems(newItems)
 
 		if(newItems.length === 0) {
 			tg.MainButton.hide();
@@ -120,7 +131,13 @@ const ProductList = () => {
 				text: `Купить ${getTotalPrice(newItems)}`
 			})
 		}
-	}
+
+	};
+
+	const onRemove = (product) => {
+
+	};
+
 
 	return (
 		<div className={'list'}>
@@ -129,10 +146,8 @@ const ProductList = () => {
 					product={product}
 					key={product.id}
 					onAdd={onAdd}
-					increase={increase}
-					decrease={decrease}
+					onRemove={onRemove}
 					className={'item'}
-					count={product.count}
 				/>
 			))}
 		</div>

@@ -1,5 +1,5 @@
 export const orderCartData = {
-    products,
-    totalPrice,
-    queryId
+    //products,
+    //totalPrice,
+    //queryId
 }
