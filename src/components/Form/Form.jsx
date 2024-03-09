@@ -1,9 +1,9 @@
 import React, {useEffect, useState, useCallback} from "react";
 import './Form.css';
 import { useTelegram } from "../../hooks/useTelegram";
-import { useNavigate } from "react-router-dom"
+//import { useNavigate } from "react-router-dom"
 
-const navigate = useNavigate()
+//const navigate = useNavigate()
 
 // 1 Создание объекта "Форма(Form)"
 const Form =() => {
