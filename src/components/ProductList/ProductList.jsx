@@ -50,11 +50,16 @@ const ProductList = () => {
     }, [addedItems])
 
 	useEffect( ()=> {
-		tg.onEvent('mainButtonClicked', onSendData)
-			return ()=> {
-				tg.offEvent('mainButtonClicked', onSendData)
-			}
-		}, [onSendData])
+
+		tg.onEvent('mainButtonClicked', function() {
+			tg.openTelegramLink('https://greenpatobot.netlify.app/form')
+		})
+
+		// tg.onEvent('mainButtonClicked', onSendData)
+		// 	return ()=> {
+		// 		tg.offEvent('mainButtonClicked', onSendData)
+		// 	}
+		// }, [onSendData])
 
 
 	//КОРЗИНА
