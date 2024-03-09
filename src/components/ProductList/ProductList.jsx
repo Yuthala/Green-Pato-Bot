@@ -38,7 +38,7 @@ const ProductList = () => {
 			queryId
         }
 		orderCartData = data
-	tg.sendData(JSON.stringify(orderCartData));
+	tg.sendData(JSON.stringify(data));
     }, [addedItems])
 
 	useEffect( ()=> {
