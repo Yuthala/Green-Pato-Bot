@@ -29,23 +29,19 @@ const ProductList = () => {
 	// Отслеживание объекта tg 
 	const {tg, queryId} = useTelegram();
 
-	// 1.2 Передача данных в Telegram --
 	const onSendData = useCallback(() => {
-		// Объект для передачи в Telegram
-         const data = {
+        const data = {
             products: addedItems,
-			totalPrice: getTotalPrice(addedItems),
-			queryId
+            totalPrice: getTotalPrice(addedItems),
+            queryId,
         }
-		
-	//tg.sendData(JSON.stringify(data));
-	fetch('http://89.111.141.36:8000/web-data', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify(data)
-	})
+        fetch('http://89.111.141.36:8000/web-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
     }, [addedItems])
 
 	useEffect( ()=> {
