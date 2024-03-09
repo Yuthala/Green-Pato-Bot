@@ -29,13 +29,15 @@ const ProductList = () => {
 	// Отслеживание объекта tg 
 	const {tg, queryId} = useTelegram();
 
+	const newLocal = 'http://localhost:8000/web-data';
+
 	const onSendData = useCallback(() => {
         const data = {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('http://localhost:8000/web-data', {
+        fetch(newLocal , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
