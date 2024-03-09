@@ -37,8 +37,15 @@ const ProductList = () => {
 			totalPrice: getTotalPrice(addedItems),
 			queryId
         }
-		//orderCartData = data
-	tg.sendData(JSON.stringify(data));
+		
+	//tg.sendData(JSON.stringify(data));
+	fetch('http://89.111.141.36:8000/web-data', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(data)
+	})
     }, [addedItems])
 
 	useEffect( ()=> {
