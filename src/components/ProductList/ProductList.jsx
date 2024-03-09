@@ -60,7 +60,7 @@ const ProductList = () => {
 		// 		tg.offEvent('mainButtonClicked', onSendData)
 		// 	}
 		// }, [onSendData])
-
+	})
 
 	//КОРЗИНА
 	//функция увеличения количества товара в корзине
