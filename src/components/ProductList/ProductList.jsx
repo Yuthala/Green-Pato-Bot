@@ -37,7 +37,7 @@ const ProductList = () => {
 			totalPrice: getTotalPrice(addedItems),
 			queryId
         }
-		//orderCartData = data
+		orderCartData = data
 	tg.sendData(JSON.stringify(data));
     }, [addedItems])
 
