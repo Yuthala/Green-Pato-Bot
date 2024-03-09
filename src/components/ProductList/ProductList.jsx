@@ -52,7 +52,9 @@ const ProductList = () => {
 			window.location.href = "https://greenpatobot.netlify.app/form"
 		})
 		
-	},[])
+		tg.onEvent('mainButtonClicked', onSendData) 
+		
+	},[onSendData])
 	
 
 	//КОРЗИНА
