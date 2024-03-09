@@ -48,11 +48,11 @@ const ProductList = () => {
 			}
 		}, [onSendData])
 
-	useEffect( ()=> {
-		tg.onEvent('mainButtonClicked', function() {
-			window.location.href = "https://greenpatobot.netlify.app/form"
-		})
-	})
+	// useEffect( ()=> {
+	// 	tg.onEvent('mainButtonClicked', function() {
+	// 		window.location.href = "https://greenpatobot.netlify.app/form"
+	// 	})
+	// })
 
 	//КОРЗИНА
 	//функция увеличения количества товара в корзине
