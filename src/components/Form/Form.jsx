@@ -27,12 +27,12 @@ const Form =() => {
         tg.sendData(JSON.stringify(data));
     }, [name, street, phone]) // TODO - Зачем нужен массив в useCallBack??
 
-	// useEffect( ()=> {
-	// 	tg.onEvent('mainButtonClicked', onSendData)
-	// 		return ()=> {
-	// 			tg.offEvent('mainButtonClicked', onSendData)
-	// 		}
-	// 	}, [onSendData])
+	useEffect( ()=> {
+		tg.onEvent('mainButtonClicked', onSendData)
+			return ()=> {
+				tg.offEvent('mainButtonClicked', onSendData)
+			}
+		}, [onSendData])
 
 	//цвет, текст кнопки, TODO: Что такое useEffect ??
 	// 1.4 Установка текста для Главной кнопки
@@ -41,14 +41,6 @@ const Form =() => {
 			text: 'Отправить данные'
 		})
 	}, [])
-
-
-	useEffect( ()=> {
-		tg.onEvent('mainButtonClicked', function() {
-			window.location.href = "https://ya.ru"
-		})
-		
-	},[])
 
 	// 1.5 Отслеживание значений в элементах Формы, чтобы показать или скрыть Главную кнопку
 	useEffect( () => {

@@ -39,12 +39,20 @@ const ProductList = () => {
 	tg.sendData(JSON.stringify(data));
     }, [addedItems])
 
+	// useEffect( ()=> {
+	// 	tg.onEvent('mainButtonClicked', onSendData)
+	// 		return ()=> {
+	// 			tg.offEvent('mainButtonClicked', onSendData)
+	// 		}
+	// 	}, [onSendData])
+
+	
 	useEffect( ()=> {
-		tg.onEvent('mainButtonClicked', onSendData)
-			return ()=> {
-				tg.offEvent('mainButtonClicked', onSendData)
-			}
-		}, [onSendData])
+		tg.onEvent('mainButtonClicked', function() {
+			window.location.href = "https://greenpatobot.netlify.app/form"
+		})
+		
+	},[])
 	
 
 	//КОРЗИНА
