@@ -32,29 +32,27 @@ const ProductList = () => {
 	// 1.2 Передача данных в Telegram --
 	const onSendData = useCallback(() => {
 		// Объект для передачи в Telegram
-        // const data = {
-        //     products: addedItems,
-		// 	totalPrice: getTotalPrice(addedItems),
-		// 	queryId
-        // }
+        const data = {
+            products: addedItems,
+			totalPrice: getTotalPrice(addedItems),
+			queryId
+        }
+		orderCartData = data
 	//tg.sendData(JSON.stringify(data));
     }, [addedItems])
 
-	const data = {
-		products: addedItems,
-		totalPrice: getTotalPrice(addedItems),
-		queryId
-	}
-	 orderCartData = data
-
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', onSendData)
-		window.location.href = "https://greenpatobot.netlify.app/form"
-			// return ()=> {
-			// 	tg.offEvent('mainButtonClicked', onSendData)
-			// }
+			return ()=> {
+				tg.offEvent('mainButtonClicked', onSendData)
+			}
 		}, [onSendData])
-	
+
+	useEffect( ()=> {
+		tg.onEvent('mainButtonClicked', function() {
+			window.location.href = "https://greenpatobot.netlify.app/form"
+		})
+	})
 
 	//КОРЗИНА
 	//функция увеличения количества товара в корзине
