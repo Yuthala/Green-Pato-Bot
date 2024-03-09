@@ -43,7 +43,7 @@ const ProductList = () => {
 
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', onSendData)
-		
+
 		orderCartData = {
 			products: addedItems,
 			totalPrice: getTotalPrice(addedItems),
@@ -57,11 +57,11 @@ const ProductList = () => {
 	
 	// useEffect( ()=> {
 	// 	tg.onEvent('mainButtonClicked', function() {
-			orderCartData = {
-				products: addedItems,
-				totalPrice: getTotalPrice(addedItems),
-				queryId
-			}
+			// orderCartData = {
+			// 	products: addedItems,
+			// 	totalPrice: getTotalPrice(addedItems),
+			// 	queryId
+			// }
 	// 		window.location.href = "https://greenpatobot.netlify.app/form"
 			
 	// 	})
