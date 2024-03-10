@@ -37,13 +37,21 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch(newLocal , {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        })
+
+		const testData = {
+			"name": "name",
+			"age": 23
+		}
+
+			fetch(newLocal , {
+				method: 'POST',
+				mode: cors,
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(testData)
+			})
+        
     }, [addedItems])
 
 	useEffect( ()=> {
