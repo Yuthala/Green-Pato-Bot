@@ -25,7 +25,7 @@ const Form =() => {
             name,
             street,
             phone,
-			
+			orderCartData
         }
 		
 		// 1.3 Вызов функции передачи объекта в Telegram 
