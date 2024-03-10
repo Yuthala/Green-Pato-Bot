@@ -56,7 +56,7 @@ const ProductList = () => {
 	// 		}
 	// 	}, [onSendData])
 
-		function sendData() {
+		async function sendData()  {
 			const data = {
 						products: addedItems,
 						totalPrice: getTotalPrice(addedItems),
