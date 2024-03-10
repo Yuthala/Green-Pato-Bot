@@ -20,12 +20,12 @@ const Form =() => {
     const onSendData = useCallback(() => {
 		// Объект для передачи в Telegram
 
-		const initData = tg.initData
+		
         const data = {
             name,
             street,
             phone,
-			initData
+			
         }
 		
 		// 1.3 Вызов функции передачи объекта в Telegram 

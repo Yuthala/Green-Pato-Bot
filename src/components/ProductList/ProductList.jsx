@@ -2,7 +2,7 @@ import React, {useEffect, useState, useCallback} from "react";
 import './ProductList.css';
 import ProductItem from '../ProductItem/ProductItem';
 import { useTelegram } from '../../hooks/useTelegram';
-//import { orderCartData } from '../../hooks/CustomerData';
+import { orderCartData } from '../../hooks/CustomerData';
 
 
 
@@ -39,6 +39,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
+		orderCartData = data
 
 			fetch(newLocal , {
 				method: 'POST',
