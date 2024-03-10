@@ -58,13 +58,13 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId
         }
-		fetch(newLocal , {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(testData)
-		})
+		// fetch(newLocal , {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// 	body: JSON.stringify(testData)
+		// })
 
 		alert(`My data products: ${data.products}, price: ${data.totalPrice}, queryId: ${data.queryId}`)
 	})
