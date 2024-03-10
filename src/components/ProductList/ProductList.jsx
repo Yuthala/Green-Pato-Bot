@@ -41,13 +41,15 @@ const ProductList = () => {
         }
 		orderCartData = data
 
+		const testData = tg.initDataUnsafe.body
+
 			fetch(newLocal , {
 				method: 'POST',
 				mode: cors,
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify(orderCartData)
+				body: JSON.stringify(testData)
 			})
         
     }, [addedItems])
