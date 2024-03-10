@@ -16,7 +16,7 @@ const products = [
 // Подсчёт стоимости всех товаров в массиве с учётом количества
 const getTotalPrice = (items = []) => {
 	return items.reduce((acc, item) => {
-		return acc += item.price * item.count
+		return acc += item.price
 	}, 0)
 }
 
@@ -31,28 +31,23 @@ const ProductList = () => {
 
 	const newLocal = 'http://89.111.141.36:8000/web-data';
 
-	const onSendData = useCallback(() => {
-        const data = {
-            products: addedItems,
-            totalPrice: getTotalPrice(addedItems),
-            queryId,
-        }
+	// const onSendData = useCallback(() => {
+    //     const data = {
+    //         products: addedItems,
+    //         totalPrice: getTotalPrice(addedItems),
+    //         queryId,
+    //     }
 
-		const testData = {
-			"name": "name",
-			"age": 23
-		}
-
-			fetch(newLocal , {
-				method: 'POST',
-				mode: cors,
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(testData)
-			})
+	// 		fetch(newLocal , {
+	// 			method: 'POST',
+	// 			mode: cors,
+	// 			headers: {
+	// 				'Content-Type': 'application/json',
+	// 			},
+	// 			body: JSON.stringify(data)
+	// 		})
         
-    }, [addedItems])
+    // }, [addedItems])
 
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', onSendData)
