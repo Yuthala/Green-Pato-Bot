@@ -39,7 +39,6 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-		orderCartData = data
 
 		const testData = tg.initDataUnsafe.body
 
@@ -53,6 +52,11 @@ const ProductList = () => {
         
     }, [addedItems])
 
+	useEffect(()=> {
+		const testData = tg.initDataUnsafe.body
+		alert(testData)
+	})
+
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', onSendData)
 			return ()=> {
@@ -63,27 +67,6 @@ const ProductList = () => {
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', function() {
 			window.location.href = "https://greenpatobot.netlify.app/form"
-		})
-	})
-
-	useEffect( ()=> {
-		tg.onEvent('mainButtonClicked', function() {
-
-			// const testData = {
-			// 	queryId : 123,
-   			// 	totalPrice : 1230,
-    		// 	products : ["product_1", "product_2, product_3"]
-			// }
-
-			const testData = tg.initDataUnsafe
-
-			fetch(newLocal , {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(testData)
-			})
 		})
 	})
 
@@ -162,21 +145,7 @@ const ProductList = () => {
 	};
 
 	const onRemove = (product) => {
-		alert('sending')
-		const data = {
-            products: addedItems,
-            totalPrice: getTotalPrice(addedItems),
-            queryId,
-        }
-
-		fetch(newLocal , {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(testData)
-		})
-	alert('sent')
+		
 	};
 
 
