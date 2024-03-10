@@ -37,7 +37,7 @@ const ProductList = () => {
         const data = {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
-            //queryId,
+            queryId,
         }
 
 		//const testData = tg.initDataUnsafe.body
@@ -49,8 +49,8 @@ const ProductList = () => {
 				},
 				body: JSON.stringify(data)
 			})
-    //}, [addedItems])
-})
+    }, [addedItems])
+// })
 
 
 	useEffect(()=> {
