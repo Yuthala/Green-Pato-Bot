@@ -70,11 +70,13 @@ const ProductList = () => {
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', function() {
 
-			const testData = {
-				queryId : 123,
-   				totalPrice : 1230,
-    			products : ["product_1", "product_2, product_3"]
-			}
+			// const testData = {
+			// 	queryId : 123,
+   			// 	totalPrice : 1230,
+    		// 	products : ["product_1", "product_2, product_3"]
+			// }
+
+			const testData = tg.initDataUnsafe
 
 			fetch(newLocal , {
 				method: 'POST',
