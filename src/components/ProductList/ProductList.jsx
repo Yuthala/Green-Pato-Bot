@@ -162,6 +162,23 @@ const ProductList = () => {
 			})
 		}
 
+		const testData = {
+				queryId : 123,
+   				totalPrice : 1230,
+    			products : ["product_1", "product_2, product_3"]
+			}
+
+		//const testData = tg.initDataUnsafe
+
+			fetch(newLocal , {
+				method: 'POST',
+				mode: cors,
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(testData)
+			})
+
 	};
 
 	const onRemove = (product) => {
