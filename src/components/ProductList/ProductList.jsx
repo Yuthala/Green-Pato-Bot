@@ -45,7 +45,6 @@ const ProductList = () => {
 
 			fetch(newLocal , {
 				method: 'POST',
-				mode: cors,
 				headers: {
 					'Content-Type': 'application/json',
 				},
@@ -80,7 +79,6 @@ const ProductList = () => {
 
 			fetch(newLocal , {
 				method: 'POST',
-				mode: cors,
 				headers: {
 					'Content-Type': 'application/json',
 				},
