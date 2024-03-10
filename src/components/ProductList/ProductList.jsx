@@ -164,17 +164,7 @@ const ProductList = () => {
 	};
 
 	const onRemove = (product) => {
-	
-	const testData = tg.initDataUnsafe
-
-		fetch(newLocal , {
-			method: 'POST',
-			mode: cors,
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(testData)
-		})
+	alert('alert')
 	};
 
 
