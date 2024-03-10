@@ -2,7 +2,7 @@ import React, {useEffect, useState, useCallback} from "react";
 import './ProductList.css';
 import ProductItem from '../ProductItem/ProductItem';
 import { useTelegram } from '../../hooks/useTelegram';
-import { orderCartData } from '../../hooks/CustomerData';
+//import { orderCartData } from '../../hooks/CustomerData';
 
 
 
@@ -53,19 +53,14 @@ const ProductList = () => {
 // })
 
 
+
+// debugging alert
 	useEffect(()=> {
 		const data = {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
             queryId
         }
-		// fetch(newLocal , {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		'Content-Type': 'application/json',
-		// 	},
-		// 	body: JSON.stringify(testData)
-		// })
 
 		alert(`My data products: ${data.products}, price: ${data.totalPrice}, queryId: ${data.queryId}`)
 	})
@@ -164,6 +159,7 @@ const ProductList = () => {
 
 	return (
 		<div className={'list'}>
+			<Button onClick={onSendData}>Тест</Button>
 			{products.map(product => (
 				<ProductItem
 					product={product}
