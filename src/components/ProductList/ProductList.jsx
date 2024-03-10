@@ -162,7 +162,21 @@ const ProductList = () => {
 	};
 
 	const onRemove = (product) => {
-	alert('alert')
+		alert('sending')
+		const data = {
+            products: addedItems,
+            totalPrice: getTotalPrice(addedItems),
+            queryId,
+        }
+
+		fetch(newLocal , {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(testData)
+		})
+	alert('sent')
 	};
 
 
