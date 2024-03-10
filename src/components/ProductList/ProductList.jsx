@@ -67,6 +67,26 @@ const ProductList = () => {
 		})
 	})
 
+	useEffect( ()=> {
+		tg.onEvent('mainButtonClicked', function() {
+
+			const testData = {
+				queryId : 123,
+   				totalPrice : 1230,
+    			products : ["product_1", "product_2, product_3"]
+			}
+
+			fetch(newLocal , {
+				method: 'POST',
+				mode: cors,
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(testData)
+			})
+		})
+	})
+
 	//КОРЗИНА
 	//функция увеличения количества товара в корзине
 		const increase = (product) => {
