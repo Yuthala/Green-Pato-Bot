@@ -19,11 +19,13 @@ const Form =() => {
 	// 1.2 Передача данных в Telegram, TODO: Что такое Use callback??
     const onSendData = useCallback(() => {
 		// Объект для передачи в Telegram
+
+		const initData = tg.initData
         const data = {
             name,
             street,
             phone,
-			orderCartData
+			initData
         }
 		
 		// 1.3 Вызов функции передачи объекта в Telegram 

@@ -4,12 +4,6 @@ import ProductItem from '../ProductItem/ProductItem';
 import { useTelegram } from '../../hooks/useTelegram';
 //import { orderCartData } from '../../hooks/CustomerData';
 
-window.addEventListener("ready", async function () {
-	const data = await fetch(
-		"/validate-init",
-		{ method: "POST", body: app.initData },
-	).then(res => res.json());
-});
 
 
 // TODO:Вынести в базу данных
@@ -38,51 +32,34 @@ const ProductList = () => {
 
 	const newLocal = 'http://89.111.141.36:8000/web-data';
 
-	// const onSendData = useCallback(() => {
-    //     const data = {
-    //         products: addedItems,
-    //         totalPrice: getTotalPrice(addedItems),
-    //         queryId,
-    //     }
+	const onSendData = useCallback(() => {
+		
+        const data = {
+            products: addedItems,
+            totalPrice: getTotalPrice(addedItems),
+            queryId,
+        }
 
-	// 		fetch(newLocal , {
-	// 			method: 'POST',
-	// 			mode: cors,
-	// 			headers: {
-	// 				'Content-Type': 'application/json',
-	// 			},
-	// 			body: JSON.stringify(data)
-	// 		})
+			fetch(newLocal , {
+				method: 'POST',
+				mode: cors,
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(data)
+			})
         
-    // }, [addedItems])
+    }, [addedItems])
 
-	// useEffect( ()=> {
-	// 	tg.onEvent('mainButtonClicked', onSendData)
-	// 		return ()=> {
-	// 			tg.offEvent('mainButtonClicked', onSendData)
-	// 		}
-	// 	}, [onSendData])
-
-		async function sendData()  {
-			const data = {
-						products: addedItems,
-						totalPrice: getTotalPrice(addedItems),
-						queryId,
-					}
-
-					fetch(newLocal , {
-									method: 'POST',
-									mode: cors,
-									headers: {
-										'Content-Type': 'application/json',
-									},
-									body: JSON.stringify(data)
-								})
-		}
+	useEffect( ()=> {
+		tg.onEvent('mainButtonClicked', onSendData)
+			return ()=> {
+				tg.offEvent('mainButtonClicked', onSendData)
+			}
+		}, [onSendData])
 
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', function() {
-			sendData()
 			window.location.href = "https://greenpatobot.netlify.app/form"
 		})
 	})
