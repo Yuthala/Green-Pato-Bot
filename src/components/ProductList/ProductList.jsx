@@ -58,7 +58,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId
         }
-		alert(`My data ${data.products}% ${data.totalPrice}% ${data.queryId}`)
+		alert(`My data products: ${data.products}, price: ${data.totalPrice}, queryId: ${data.queryId}`)
 	})
 
 	useEffect( ()=> {
