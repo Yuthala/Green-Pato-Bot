@@ -53,8 +53,12 @@ const ProductList = () => {
     }, [addedItems])
 
 	useEffect(()=> {
-		const testData = tg.initDataUnsafe.body
-		alert(testData)
+		const data = {
+            products: addedItems,
+            totalPrice: getTotalPrice(addedItems),
+            queryId,
+        }
+		alert(data)
 	})
 
 	useEffect( ()=> {
