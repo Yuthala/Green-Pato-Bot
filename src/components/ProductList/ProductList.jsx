@@ -4,6 +4,13 @@ import ProductItem from '../ProductItem/ProductItem';
 import { useTelegram } from '../../hooks/useTelegram';
 //import { orderCartData } from '../../hooks/CustomerData';
 
+window.addEventListener("ready", async function () {
+	const data = await fetch(
+		"/validate-init",
+		{ method: "POST", body: app.initData },
+	).then(res => res.json());
+});
+
 
 // TODO:Вынести в базу данных
 const products = [
