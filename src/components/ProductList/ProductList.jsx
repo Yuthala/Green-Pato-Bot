@@ -40,14 +40,14 @@ const ProductList = () => {
             queryId,
         }
 
-		const testData = tg.initDataUnsafe.body
+		//const testData = tg.initDataUnsafe.body
 
 			fetch(newLocal , {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify(testData)
+				body: JSON.stringify(data)
 			})
         
     }, [addedItems])
