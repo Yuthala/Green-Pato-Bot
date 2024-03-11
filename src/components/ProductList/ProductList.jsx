@@ -84,12 +84,14 @@ const ProductList = () => {
 		alert(`My data products: ${data.products}, price: ${data.totalPrice}, queryId: ${data.queryId}`)
 	})
 
-	useEffect( ()=> {
-		tg.onEvent('mainButtonClicked', onSendData)
-			return ()=> {
-				tg.offEvent('mainButtonClicked', onSendData)
-			}
-		}, [onSendData])
+	// useEffect( ()=> {
+	// 	tg.onEvent('mainButtonClicked', onSendData)
+	// 		return ()=> {
+	// 			tg.offEvent('mainButtonClicked', onSendData)
+	// 		}
+	// 	}, [onSendData])
+
+	
 
 	useEffect( ()=> {
 		tg.onEvent('mainButtonClicked', function() {
