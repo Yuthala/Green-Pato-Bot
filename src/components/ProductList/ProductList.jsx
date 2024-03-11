@@ -61,6 +61,8 @@ const ProductList = () => {
         }
 
 		alert(`My data products: ${data.products}, price: ${data.totalPrice}, queryId: ${data.queryId}`)
+
+		tg.MainButton.onClick(onSendData)
 	})
 
 	// useEffect( ()=> {
