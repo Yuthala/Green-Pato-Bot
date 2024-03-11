@@ -33,7 +33,26 @@ const ProductList = () => {
 
 	const newLocal = 'http://89.111.141.36:8000/web-data';
 
-	const onSendData = useCallback(() => {
+	// const onSendData = useCallback(() => {
+	// 	alert('On send data')
+    //     const data = {
+    //         products: addedItems,
+    //         totalPrice: getTotalPrice(addedItems),
+    //         queryId,
+    //     }
+
+	// 	//const testData = tg.initDataUnsafe.body
+
+	// 		fetch(newLocal , {
+	// 			method: 'POST',
+	// 			headers: {
+	// 				'Content-Type': 'application/json',
+	// 			},
+	// 			body: JSON.stringify(data)
+	// 		})
+    // }, [addedItems])
+
+	const onSendData = () => {
 		alert('On send data')
         const data = {
             products: addedItems,
@@ -50,8 +69,7 @@ const ProductList = () => {
 				},
 				body: JSON.stringify(data)
 			})
-    }, [addedItems])
-
+    }
 
 
 
