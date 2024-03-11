@@ -33,7 +33,7 @@ const ProductList = () => {
 
 	const newLocal = 'http://89.111.141.36:8000/web-data';
 
-	const onSendData = useCallback(() => {
+	const onSendData = () => {
 		alert('On send data')
         const data = {
             products: addedItems,
@@ -50,7 +50,7 @@ const ProductList = () => {
 				},
 				body: JSON.stringify(data)
 			})
-    }, [addedItems])
+    }
 
 // debugging alert
 	useEffect(()=> {
