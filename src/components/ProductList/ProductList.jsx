@@ -31,7 +31,8 @@ const ProductList = () => {
 	// Отслеживание объекта tg 
 	const {tg, queryId} = useTelegram();
 
-	const newLocal = 'http://89.111.141.36:3000/web-data';
+	//const newLocal = 'http://89.111.141.36:3000/web-data';
+	const newLocal = 'http://localhost:3000/web-data'
 
 	const onSendData = () => {
 		alert('On send data')
