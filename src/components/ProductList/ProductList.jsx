@@ -33,7 +33,7 @@ const ProductList = () => {
 
 	//const newLocal = 'https://89.111.141.36:80/web-data';
 	//const newLocal = 'https://jsonplaceholder.typicode.com/users';
-	const newLocal = 'https://localhost:80/web-data';
+	const newLocal = 'http://localhost:80/web-data';
 
 	const onSendData = () => {
 		alert('On send data')
