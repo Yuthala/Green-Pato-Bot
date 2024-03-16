@@ -31,8 +31,9 @@ const ProductList = () => {
 	// Отслеживание объекта tg 
 	const {tg, queryId} = useTelegram();
 
-	const newLocal = 'https://89.111.141.36:80/web-data';
+	//const newLocal = 'https://89.111.141.36:80/web-data';
 	//const newLocal = 'https://jsonplaceholder.typicode.com/users';
+	const newLocal = 'https://localhost:80/web-data';
 
 	const onSendData = () => {
 		alert('On send data')
