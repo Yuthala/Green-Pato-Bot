@@ -26,6 +26,7 @@ const bot = new TelegramBot(process.env.BOT_TOKEN, {polling: true});
 
 // Web URL 
 const webAppURL = 'https://greenpatobot.netlify.app'
+// const webAppURL1 = 'https://api.telegram.org/bot6845826917:AAHAKJ_DuD8hPDYRhMushItUU2oUpZVTPPE/sendMessage?chat_id=279152055&text=Hi+Everyone'
 //const webAppURL = 'https://testbot-greenpato.netlify.app'
 
 bot.on('message', async (msg) => {
@@ -142,7 +143,7 @@ bot.on('message', async (msg) => {
                 keyboard: [
                     [{text: 'Сделать заказ', web_app: {url: webAppURL}}]
 
-                    // [{text: 'Отправить форму', web_app: {url: webAppURL + '/form'}}]
+                    // [{text: 'Отправить другому', web_app: {url: webAppURL1}}]
                 ] ,
                 resize_keyboard: true
             }
