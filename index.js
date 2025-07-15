@@ -1,9 +1,6 @@
 //TO DO:
 
-//3. найти как присваивать номера заказов 
-//5. После того как пользователь сделал заказ, разорвать сессию
-//6. Добавить пункт меню Написать сообщение
-//8. Поместить кнопку Сделать Заказ в самый верх поля кнопок
+// переместить данные авторизации почты в файл .env
 
 // Injecting enviroument 
 require('dotenv').config();
@@ -52,7 +49,7 @@ bot.on('message', async (msg) => {
         async function renderCart(data) {
             for (let i = 0; i < data.products.length; i++) {
                 setTimeout(async () => {
-                    await bot.sendMessage(chatId, `Наименование: ${data.products[i].title}\n Цена: ${data.products[i].price}\n Кол-во: ${data.products[i].quantity}`);
+                    await bot.sendMessage(chatId, `Наименование: ${data.products[i].title}\n Цена: ${data.products[i].price} ₽\n Кол-во: ${data.products[i].quantity} кг`);
                 }, 1500)
             }
         }
